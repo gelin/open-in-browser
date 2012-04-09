@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">android-open-in-browser</string>
+    <string name="app_name">Open in browser</string>
+    <string name="browser">Browser</string>
+    <string name="open_in_browser">Open in browser</string>
 </resources>
