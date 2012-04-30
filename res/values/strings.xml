@@ -3,4 +3,5 @@
     <string name="app_name">Open in browser</string>
     <string name="browser">Browser</string>
     <string name="open_in_browser">Open in browser</string>
+    <string name="cannot_open">Cannot open this file</string>
 </resources>

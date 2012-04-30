@@ -1,5 +1,6 @@
 package ru.gelin.android.browser.open.intent;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
@@ -16,17 +17,17 @@ public abstract class IntentConverter {
      *  Returns the appropriate instance of the converter.
      *  @throws IllegalArgumentException if the converter cannot be created
      */
-    public static IntentConverter getInstance(Intent intent) throws IllegalArgumentException {
-        IntentConverter result = null;
+    public static IntentConverter getInstance(Context context, Intent intent) throws IllegalArgumentException {
+        IntentConverter result;
         result = AstroIntentConverter.getInstance(intent);
         if (result != null) {
             return result;
         }
-        result = ContentDataIntentConverter.getInstance(intent);
+        result = ContentDataIntentConverter.getInstance(context, intent);
         if (result != null) {
             return result;
         }
-        throw.new IllegalArgumentException("intent is not convertable: " + intent);
+        throw new IllegalArgumentException("intent is not convertable: " + intent);
     }
 
     /**
