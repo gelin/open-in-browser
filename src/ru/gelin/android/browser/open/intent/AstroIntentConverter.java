@@ -14,7 +14,7 @@ import java.io.File;
 class AstroIntentConverter extends IntentConverter {
 
     static final String CONTENT_SCHEME = "content";
-    static final String ASTRO_PATH = "com.metago.astro.filesystem";
+    static final String ASTRO_HOST = "com.metago.astro.filesystem";
 
     String path;
 
@@ -30,10 +30,11 @@ class AstroIntentConverter extends IntentConverter {
         if (!CONTENT_SCHEME.equals(data.getScheme())) {
             return null;
         }
-        String path = data.getPath();
-        if (!path.startsWith(ASTRO_PATH)) {
+        String host = data.getHost();
+        if (!ASTRO_HOST.equals(host)) {
             return null;
         }
+        String path = data.getPath();
         return new AstroIntentConverter(path);
     }
 
@@ -43,8 +44,7 @@ class AstroIntentConverter extends IntentConverter {
 
     @Override
     Uri extractUri(Intent intent) {
-        String fileName = this.path.substring(ASTRO_PATH.length());
-        return Uri.fromFile(new File(fileName));
+        return Uri.fromFile(new File(this.path));
     }
 
 }

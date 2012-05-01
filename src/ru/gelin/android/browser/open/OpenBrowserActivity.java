@@ -11,6 +11,8 @@ import android.util.Log;
 import android.widget.Toast;
 import ru.gelin.android.browser.open.intent.IntentConverter;
 
+import java.util.List;
+
 /**
  *  Converts input view intent into browsable intent.
  */
@@ -24,11 +26,15 @@ public class OpenBrowserActivity extends Activity {
         try {
             IntentConverter converter = IntentConverter.getInstance(this, getIntent());
             Intent fileIntent = converter.convert();
+            Log.d(Tag.TAG, "File: " + fileIntent);
             //getString(R.string.open_in_browser)
             //TODO: multiple browsers case
-            fileIntent.setComponent(resolveBrowserComponent());
+            ComponentName browser = resolveBrowserComponent();
+            Log.d(Tag.TAG, "Browser: " + browser);
+            fileIntent.setComponent(browser);
             startActivity(fileIntent);
         } catch (Exception e) {
+            Log.e(Tag.TAG, "failed to open the file", e);
             Toast.makeText(this, R.string.cannot_open, Toast.LENGTH_LONG).show();
         } finally {
             finish();
@@ -40,8 +46,9 @@ public class OpenBrowserActivity extends Activity {
      */
     ComponentName resolveBrowserComponent() {
         PackageManager pm = getPackageManager();
-        ResolveInfo info = pm.resolveActivity(BROWSER_INTENT, 0);
-        ComponentName component = new ComponentName(info.activityInfo.packageName, info.activityInfo.targetActivity);
+        List<ResolveInfo> info = pm.queryIntentActivities(BROWSER_INTENT, 0);
+        ResolveInfo firstBrowser = info.get(0);
+        ComponentName component = new ComponentName(firstBrowser.activityInfo.packageName, firstBrowser.activityInfo.name);
         return component;
     }
 

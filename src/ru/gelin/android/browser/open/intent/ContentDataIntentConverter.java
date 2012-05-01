@@ -9,6 +9,9 @@ import android.provider.MediaStore;
 import android.util.Log;
 import ru.gelin.android.browser.open.Tag;
 
+import java.io.File;
+import java.util.Arrays;
+
 /**
  *  Converts the original intent received from the file manager into
  *  the intent which opens the file in the browser.
@@ -18,8 +21,9 @@ import ru.gelin.android.browser.open.Tag;
 class ContentDataIntentConverter extends IntentConverter {
 
     static final String CONTENT_SCHEME = "content";
+    static final String FILE_URI_PREFIX = "file:";
 
-    Uri uri;
+    String data;
 
     /**
      *  Returns the appropriate instance of the converter.
@@ -36,21 +40,26 @@ class ContentDataIntentConverter extends IntentConverter {
         try {
             ContentResolver resolver = context.getContentResolver();
             Cursor cursor = resolver.query(data, null, null, null, null);
+            Log.d(Tag.TAG, "Columns: " + Arrays.asList(cursor.getColumnNames()));
             cursor.moveToFirst();
-            Uri uri = Uri.parse(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA)));
-            return new ContentDataIntentConverter(uri);
+            String fileData = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA));
+            return new ContentDataIntentConverter(fileData);
         } catch (Exception e) {
             Log.w(Tag.TAG, e);
             return null;
         }
     }
 
-    ContentDataIntentConverter(Uri uri) {
-        this.uri = uri;
+    ContentDataIntentConverter(String data) {
+        this.data = data;
     }
 
     @Override
     Uri extractUri(Intent intent) {
-        return this.uri;
+        if (this.data.startsWith(FILE_URI_PREFIX)) {
+            return Uri.parse(this.data);
+        } else {
+            return Uri.fromFile(new File(this.data));
+        }
     }
 }
