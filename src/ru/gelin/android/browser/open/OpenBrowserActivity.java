@@ -29,7 +29,7 @@ public class OpenBrowserActivity extends Activity {
             IntentConverter converter = IntentConverter.getInstance(this, getIntent());
             Intent fileIntent = converter.convert();
             Log.d(Tag.TAG, "File: " + fileIntent);
-            Intent chooserIntent = Intent.createChooser(fileIntent, getString(R.string.open_in_browser));
+            Intent chooserIntent = Intent.createChooser(BROWSER_INTENT, getString(R.string.open_in_browser));
             //http://stackoverflow.com/questions/5734678/custom-filtering-of-intent-chooser-based-on-installed-android-package-name
             chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS,
                     resolveBrowserComponents(fileIntent).toArray(new Parcelable[]{}));
