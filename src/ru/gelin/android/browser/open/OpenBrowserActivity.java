@@ -7,10 +7,12 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.widget.Toast;
 import ru.gelin.android.browser.open.intent.IntentConverter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,12 +29,11 @@ public class OpenBrowserActivity extends Activity {
             IntentConverter converter = IntentConverter.getInstance(this, getIntent());
             Intent fileIntent = converter.convert();
             Log.d(Tag.TAG, "File: " + fileIntent);
-            //getString(R.string.open_in_browser)
-            //TODO: multiple browsers case
-            ComponentName browser = resolveBrowserComponent();
-            Log.d(Tag.TAG, "Browser: " + browser);
-            fileIntent.setComponent(browser);
-            startActivity(fileIntent);
+            Intent chooserIntent = Intent.createChooser(fileIntent, getString(R.string.open_in_browser));
+            //http://stackoverflow.com/questions/5734678/custom-filtering-of-intent-chooser-based-on-installed-android-package-name
+            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS,
+                    resolveBrowserComponents(fileIntent).toArray(new Parcelable[]{}));
+            startActivity(chooserIntent);
         } catch (Exception e) {
             Log.e(Tag.TAG, "failed to open the file", e);
             Toast.makeText(this, R.string.cannot_open, Toast.LENGTH_LONG).show();
@@ -42,14 +43,21 @@ public class OpenBrowserActivity extends Activity {
     }
 
     /**
-     *  Find the browser to open the file.
+     *  Find the browser(s) to open the file.
+     *  Return the list of intents which component name is set to the browser.
      */
-    ComponentName resolveBrowserComponent() {
+    List<Intent> resolveBrowserComponents(Intent intent) {
+        List<Intent> result = new ArrayList<Intent>();
         PackageManager pm = getPackageManager();
         List<ResolveInfo> info = pm.queryIntentActivities(BROWSER_INTENT, 0);
-        ResolveInfo firstBrowser = info.get(0);
-        ComponentName component = new ComponentName(firstBrowser.activityInfo.packageName, firstBrowser.activityInfo.name);
-        return component;
+        for (ResolveInfo browser : info) {;
+            ComponentName component = new ComponentName(browser.activityInfo.packageName, browser.activityInfo.name);
+            Log.d(Tag.TAG, "Browser: " + component);
+            Intent browserIntent = new Intent(intent);
+            browserIntent.setComponent(component);
+            result.add(browserIntent);
+        }
+        return result;
     }
 
 }
