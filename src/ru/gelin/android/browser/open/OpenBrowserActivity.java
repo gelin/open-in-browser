@@ -20,8 +20,6 @@ import java.util.List;
  */
 public class OpenBrowserActivity extends Activity {
 
-    static final Intent BROWSER_INTENT = new Intent(Intent.ACTION_VIEW, Uri.parse("http://example.com"));
-
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(Tag.TAG, "Intent: " + getIntent());
