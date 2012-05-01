@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.util.Log;
+import ru.gelin.android.browser.open.Tag;
 
 /**
  *  Converts the original intent received from the file manager into
@@ -38,6 +40,7 @@ class ContentDataIntentConverter extends IntentConverter {
             Uri uri = Uri.parse(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA)));
             return new ContentDataIntentConverter(uri);
         } catch (Exception e) {
+            Log.w(Tag.TAG, e);
             return null;
         }
     }
