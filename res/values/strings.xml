@@ -10,4 +10,5 @@
     <string name="browser">Browser</string>
     <string name="open_in_browser">Open in browser</string>
     <string name="cannot_open">Cannot open this file</string>
+    <string name="no_browsers">There is no browsers in your system</string>
 </resources>

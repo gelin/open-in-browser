@@ -22,7 +22,19 @@ public class OpenBrowserActivity extends ListActivity {
             IntentConverter converter = IntentConverter.getInstance(this, getIntent());
             Intent fileIntent = converter.convert();
             Log.d(Tag.TAG, "File: " + fileIntent);
-            setListAdapter(new BrowsersAdapter(this, fileIntent));
+            BrowsersAdapter adapter = new BrowsersAdapter(this, fileIntent);
+            switch (adapter.getCount()) {
+                case 0:
+                    Toast.makeText(this, R.string.no_browsers, Toast.LENGTH_LONG).show();
+                    finish();
+                    break;
+                case 1:
+                    startActivity(adapter.getIntent(0));
+                    finish();
+                    break;
+                default:
+                    setListAdapter(adapter);
+            }
         } catch (Exception e) {
             Log.e(Tag.TAG, "failed to open the file", e);
             Toast.makeText(this, R.string.cannot_open, Toast.LENGTH_LONG).show();
