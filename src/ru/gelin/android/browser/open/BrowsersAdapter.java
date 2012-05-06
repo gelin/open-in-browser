@@ -1,5 +1,6 @@
 package ru.gelin.android.browser.open;
 
+import android.R;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -7,9 +8,12 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +34,11 @@ public class BrowsersAdapter extends BaseAdapter {
         }
     }
 
+    Context context;
     List<ResolveInfoAndIntent> browsers;
 
     public BrowsersAdapter(Context context, Intent intent) {
+        this.context = context;
         this.browsers = new ArrayList<ResolveInfoAndIntent>();
         PackageManager pm = context.getPackageManager();
         List<ResolveInfo> info = pm.queryIntentActivities(BROWSER_INTENT, 0);
@@ -65,11 +71,28 @@ public class BrowsersAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int i) {
-        return 0;  //To change body of implemented methods use File | Settings | File Templates.
+        return 0;
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    public View getView(int i, View convertView, ViewGroup viewGroup) {
+        View view = convertView;
+        if (view == null) {
+            view = LayoutInflater.from(this.context).inflate(
+                    R.layout.activity_list_item, viewGroup, false);
+        }
+        ResolveInfo browser = getInfo(i);
+        if (browser.icon != 0) {
+            ImageView icon = (ImageView)view.findViewById(R.id.icon);
+            icon.setImageResource(browser.icon);  //TODO cache icons?
+        }
+        if (browser.labelRes != 0) {
+            TextView text = (TextView)view.findViewById(R.id.text1);
+            text.setText(browser.labelRes);
+        }
+        return view;
     }
+
+
+
 }
