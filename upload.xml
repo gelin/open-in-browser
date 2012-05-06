@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="android-open-in-browser-upload" default="all">
+
+    <property file="local.properties"/>
+    <property file="upload.credentials.properties"/>
+    <xmlproperty file="AndroidManifest.xml"/>
+    
+    <property name="app" value="android-open-in-browser"/>
+    <property name="projectname" value="android-open-in-browser"/>
+
+    <taskdef classname="net.bluecow.googlecode.ant.GoogleCodeUploadTask" name="gcupload"
+	classpath="${sdk.dir}/ant-googlecode-0.0.2.jar"/>
+
+    <target name="all" depends="debug, release"/>
+
+    <target name="debug" description="Upload ${app}-debug.apk">
+
+	<gcupload 
+	    username="${gc.username}"
+	    password="${gc.password}"
+    	    projectname="${projectname}" 
+    	    filename="bin/${app}-debug.apk" 
+    	    targetfilename="${app}-${manifest(android:versionName)}-debug.apk"
+    	    summary="Latest build (${manifest(android:versionName)}, signed by debug key)"
+    	    labels="Type-Package, OpSys-Android_2.0" />
+
+	<copy file="bin/${app}-debug.apk"
+	    todir="/home/gelin/Dropbox/android@gelin"/>
+    
+    </target>
+    
+    <target name="release" description="Upload ${app}.apk">
+
+	<copy file="bin/${app}-release.apk"
+	    tofile="bin/${app}.apk"/>
+
+	<gcupload 
+	    username="${gc.username}"
+	    password="${gc.password}"
+    	    projectname="${projectname}" 
+    	    filename="bin/${app}.apk" 
+    	    targetfilename="${app}-${manifest(android:versionName)}.apk"
+    	    summary="Latest build (${manifest(android:versionName)})"
+    	    labels="Featured, Type-Package, OpSys-Android_2.0" />
+
+	<copy file="bin/${app}.apk"
+	    todir="/home/gelin/Dropbox/android@gelin"/>
+    
+    </target>
+
+</project>
