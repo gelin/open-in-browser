@@ -19,6 +19,10 @@ public abstract class IntentConverter {
      */
     public static IntentConverter getInstance(Context context, Intent intent) throws IllegalArgumentException {
         IntentConverter result;
+        result = FileIntentConverter.getInstance(intent);
+        if (result != null) {
+            return result;
+        }
         result = AstroIntentConverter.getInstance(intent);
         if (result != null) {
             return result;
