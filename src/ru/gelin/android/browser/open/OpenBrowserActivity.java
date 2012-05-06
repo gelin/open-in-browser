@@ -16,6 +16,7 @@ public class OpenBrowserActivity extends ListActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle(R.string.open_in_browser);
         Log.d(Tag.TAG, "Intent: " + getIntent());
         try {
             IntentConverter converter = IntentConverter.getInstance(this, getIntent());

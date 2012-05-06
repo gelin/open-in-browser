@@ -1,6 +1,5 @@
 package ru.gelin.android.browser.open;
 
-import android.R;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -79,17 +78,14 @@ public class BrowsersAdapter extends BaseAdapter {
         View view = convertView;
         if (view == null) {
             view = LayoutInflater.from(this.context).inflate(
-                    R.layout.activity_list_item, viewGroup, false);
+                    R.layout.activity_chooser_view_list_item, viewGroup, false);
         }
         ResolveInfo browser = getInfo(i);
-        if (browser.icon != 0) {
-            ImageView icon = (ImageView)view.findViewById(R.id.icon);
-            icon.setImageResource(browser.icon);  //TODO cache icons?
-        }
-        if (browser.labelRes != 0) {
-            TextView text = (TextView)view.findViewById(R.id.text1);
-            text.setText(browser.labelRes);
-        }
+        PackageManager pm = this.context.getPackageManager();
+        ImageView icon = (ImageView)view.findViewById(R.id.icon);
+        icon.setImageDrawable(browser.loadIcon(pm));  //TODO cache icons
+        TextView text = (TextView)view.findViewById(R.id.title);
+        text.setText(browser.loadLabel(pm));    //TODO cache labels
         return view;
     }
 
