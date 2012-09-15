@@ -32,7 +32,7 @@
 
     </application>
 
-    <uses-sdk android:minSdkVersion="5" android:targetSdkVersion="6"/>
+    <uses-sdk android:minSdkVersion="3" android:targetSdkVersion="4"/>
     <supports-screens/>
 
 </manifest> 
