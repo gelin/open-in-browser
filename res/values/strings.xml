@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Open in browser</string>
+    <string name="activity_name_settings">Open in browser settings</string>
     <string name="app_description">This application adds ability to open HTML/text/image files
         saved to SD card from a file manager directly in the browser.
         \nJust tap the file in the file manager and choose \"Browser\".
-        \n
-        \nClick on any place of this dialog to close it. It\'s here only to display the instructions above.
-        No settings, no other UI :)</string>
+        \nYou can specify your preference.</string>
     <string name="browser">Browser</string>
     <string name="open_in_browser">Open in browser</string>
     <string name="cannot_open">Cannot open this file</string>
     <string name="no_browsers">There is no browsers in your system</string>
+    <string name="menu_settings">OiB settings</string>
+    <string name="select_as_default">Select as default</string>
+    <string name="setup_apply">Set</string>
+    <string name="setup_reset">Reset</string>
+    <string name="setup_exit">Exit</string>
+    <string name="oib_id_selection">OiB Preference</string>
+    <string name="no_activities">You have no applications to open HTML! Please install any web browser.</string>
+    <string name="err_cant_apply">Error! Cannot apply this preference.</string>
+    <string name="company_url">http://www.thumbtack.ru</string>
 </resources>

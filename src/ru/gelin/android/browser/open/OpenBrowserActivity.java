@@ -1,29 +1,47 @@
 package ru.gelin.android.browser.open;
 
+import ru.gelin.android.browser.open.intent.IntentConverter;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
-import ru.gelin.android.browser.open.intent.IntentConverter;
+
+import ru.gelin.android.browser.open.R;
 
 /**
  *  Converts input view intent into browsable intent.
  */
 public class OpenBrowserActivity extends ListActivity {
 
+	CheckBox cb;
+	SharedPreferences sPref;
+	BrowsersAdapter adapter;
+	
+	OibPreferenceManager man;
+	
+	String ID_SELECTION;
+	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.open_in_browser);
         Log.d(Tag.TAG, "Intent: " + getIntent());
+        ID_SELECTION = getString(R.string.oib_id_selection);
+        man = new OibPreferenceManager(this,ID_SELECTION);
+        
         try {
             IntentConverter converter = IntentConverter.getInstance(this, getIntent());
             Intent fileIntent = converter.convert();
             Log.d(Tag.TAG, "File: " + fileIntent);
-            BrowsersAdapter adapter = new BrowsersAdapter(this, fileIntent);
-            switch (adapter.getCount()) {
+            adapter = new BrowsersAdapter(this, fileIntent, true);
+            int items_count = adapter.getCount();
+            int item_pos = 0;
+            String def_package = "";
+            switch (items_count) {
                 case 0:
                     Toast.makeText(this, R.string.no_browsers, Toast.LENGTH_LONG).show();
                     finish();
@@ -33,7 +51,19 @@ public class OpenBrowserActivity extends ListActivity {
                     finish();
                     break;
                 default:
-                    setListAdapter(adapter);
+                	def_package = man.loadSelection();
+                	Log.d(Tag.TAG,"default package = "+def_package);
+                	if (def_package.length() > 10) for (item_pos=0; item_pos<items_count; item_pos++) {
+                		if (def_package.equals(adapter.getBrowserPackage(item_pos))) {
+                			startActivity(adapter.getIntent(item_pos));
+                			finish();
+                			break;
+                		}
+                	}
+                	//not matched
+                	setContentView(R.layout.selection_dialog_layout);
+                	setListAdapter(adapter);
+                	cb = (CheckBox) findViewById(R.id.select_def);
             }
         } catch (Exception e) {
             Log.e(Tag.TAG, "failed to open the file", e);
@@ -46,7 +76,9 @@ public class OpenBrowserActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         BrowsersAdapter adapter = (BrowsersAdapter)l.getAdapter();
         Intent intent = adapter.getIntent(position);
+        if (cb.isChecked()) man.saveSelection(adapter.getBrowserPackage(position));
         startActivity(intent);
         finish();
     }
+
 }

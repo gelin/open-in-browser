@@ -7,10 +7,11 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
-import ru.gelin.android.browser.open.Tag;
 
 import java.io.File;
 import java.util.Arrays;
+
+import ru.gelin.android.browser.open.Tag;
 
 /**
  *  Converts the original intent received from the file manager into
