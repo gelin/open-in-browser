@@ -1,22 +1,15 @@
-<?xml version="1.1" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.gelin.android.browser.open"
-    android:versionCode="1"
-    android:versionName="1.1" >
+      package="ru.gelin.android.browser.open"
+      android:versionCode="1"
+      android:versionName="0.0.2">
+    <application android:label="@string/app_name"
+                 android:icon="@drawable/icon"
+			     android:theme="@style/AppBaseTheme"
+				 android:allowBackup="true">
 
-    <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="15" />
-
-    <application
-        android:allowBackup="true"
-        android:label="@string/app_name"
-        android:icon="@drawable/ic_launcher_oib"
-        android:theme="@style/AppBaseTheme">
-        
-        <activity
-            android:name="MainActivity" 
-            android:label="@string/activity_name_settings" >
+        <activity android:name="MainActivity"
+                  android:label="@string/activity_name_settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -36,9 +29,12 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <data android:mimeType="image/*"/>
-            </intent-filter>            
+            </intent-filter>
         </activity>
-        
+
     </application>
 
-</manifest>
+    <uses-sdk android:minSdkVersion="3" android:targetSdkVersion="4"/>
+    <supports-screens/>
+
+</manifest> 
