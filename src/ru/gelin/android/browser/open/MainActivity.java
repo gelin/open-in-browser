@@ -117,7 +117,7 @@ public class MainActivity extends Activity implements OnClickListener, OnItemCli
 		
 		int pos = lvMain.getCheckedItemPosition();
 		adapter.setSelected(pos);
-		lvMain.smoothScrollToPosition(pos);
+		//lvMain.smoothScrollToPosition(pos);
 	}
 	
 	@Override

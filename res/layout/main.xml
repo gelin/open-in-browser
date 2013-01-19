@@ -32,7 +32,7 @@
 	</TextView>
 
 	<ListView android:id="@+id/list_main"
-               android:layout_width="wrap_content"
+               android:layout_width="fill_parent"
                android:layout_height="fill_parent"
                android:layout_below="@+id/main"
                android:layout_above="@+id/main_ll"
