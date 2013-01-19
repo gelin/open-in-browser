@@ -37,7 +37,7 @@ public class OpenBrowserActivity extends ListActivity {
             IntentConverter converter = IntentConverter.getInstance(this, getIntent());
             Intent fileIntent = converter.convert();
             Log.d(Tag.TAG, "File: " + fileIntent);
-            adapter = new BrowsersAdapter(this, fileIntent, true);
+            adapter = new BrowsersAdapter(this, fileIntent);
             int items_count = adapter.getCount();
             int item_pos = 0;
             String def_package = "";

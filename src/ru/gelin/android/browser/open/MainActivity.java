@@ -53,10 +53,7 @@ public class MainActivity extends Activity implements OnClickListener, OnItemCli
         
         selected_pos = -1;
         
-        	Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.company_url)));
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            
-            adapter = new BrowsersAdapter(this, intent, false);         
+            adapter = new BrowsersAdapter(this);
             items_count = adapter.getCount();
      
             if (items_count == 0) { //no activities

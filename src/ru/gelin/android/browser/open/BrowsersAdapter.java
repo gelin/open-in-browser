@@ -43,21 +43,33 @@ public class BrowsersAdapter extends BaseAdapter {
     List<ResolveInfoAndIntent> browsers;
     int view_id;
     boolean in_dialog;
-	
-    public BrowsersAdapter(Context context, Intent intent, boolean dialog) {
+
+    public BrowsersAdapter(Context context) {
+        this.view_id = R.layout.activity_chooser_list_in_settings;
+        this.in_dialog = false;
+        init(context, null);
+    }
+
+    public BrowsersAdapter(Context context, Intent intent) {
+        this.view_id = R.layout.activity_chooser_view_list_item;
+        this.in_dialog = true;
+        init(context, intent);
+    }
+
+    void init(Context context, Intent intent) {
         this.context = context;
         this.browsers = new ArrayList<ResolveInfoAndIntent>();
-        in_dialog = dialog;
-        if (in_dialog) view_id = R.layout.activity_chooser_view_list_item;
-        else view_id = R.layout.activity_chooser_list_in_settings;
-        
+
         PackageManager pm = context.getPackageManager();
         List<ResolveInfo> info = pm.queryIntentActivities(BROWSER_INTENT, 0);
         for (ResolveInfo browser : info) {;
             ComponentName component = new ComponentName(browser.activityInfo.packageName, browser.activityInfo.name);
             //Log.d(Tag.TAG, "Found browser: " + browser.activityInfo.packageName);
-            Intent browserIntent = new Intent(intent);
-            browserIntent.setComponent(component);
+            Intent browserIntent = null;
+            if (intent != null) {
+                browserIntent = new Intent(intent);
+                browserIntent.setComponent(component);
+            }
             this.browsers.add(new ResolveInfoAndIntent(browser, browserIntent));
         }
     }

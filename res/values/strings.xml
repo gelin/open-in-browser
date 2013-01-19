@@ -18,5 +18,4 @@
     <string name="oib_id_selection">OiB Preference</string>
     <string name="no_activities">You have no applications to open HTML! Please install any web browser.</string>
     <string name="err_cant_apply">Error! Cannot apply this preference.</string>
-    <string name="company_url">http://www.thumbtack.ru</string>
 </resources>
