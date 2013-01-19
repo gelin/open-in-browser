@@ -23,6 +23,10 @@ public abstract class IntentConverter {
         if (result != null) {
             return result;
         }
+        result = HtmlFileProviderIntentConverter.getInstance(intent);
+        if (result != null) {
+            return result;
+        }
         result = AstroIntentConverter.getInstance(intent);
         if (result != null) {
             return result;
