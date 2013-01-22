@@ -5,24 +5,34 @@
               android:layout_height="wrap_content"
               android:gravity="top"
               android:padding="8dip" >
-
+              
         <ImageView
                 android:id="@+id/icon"
                 android:layout_width="48dip"
                 android:layout_height="48dip"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="8dip"
+                android:contentDescription="@string/list_view_image_content_desc"
                 android:duplicateParentState="true" />
-
-        <CheckedTextView
+ 
+        <TextView
                 android:id="@+id/title"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:checkMark="?android:attr/textCheckMark"
+                android:layout_weight="1"
                 android:singleLine="true"
                 android:ellipsize="marquee"
                 android:fadingEdge="horizontal" />
-
+        
+ 		<RadioButton 
+            	android:id="@+id/ch_radio"
+            	android:layout_gravity="center_vertical"
+            	android:textAppearance="?android:attr/textAppearanceLarge"
+            	android:layout_width="50dp"
+                android:layout_height="match_parent"
+            	android:focusable="false"
+            	android:checked="false" />
+ 		
 </LinearLayout>

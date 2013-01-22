@@ -14,8 +14,10 @@
     <string name="select_as_default">Select as default</string>
     <string name="setup_apply">Set</string>
     <string name="setup_reset">Reset</string>
+    <string name="setup_reset_long">Clear Preference</string>
     <string name="setup_exit">Exit</string>
     <string name="oib_id_selection">OiB Preference</string>
     <string name="no_activities">You have no applications to open HTML! Please install any web browser.</string>
     <string name="err_cant_apply">Error! Cannot apply this preference.</string>
+	<string name="list_view_image_content_desc">Browser icon</string>
 </resources>

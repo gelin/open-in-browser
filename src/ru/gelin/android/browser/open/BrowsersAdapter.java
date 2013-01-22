@@ -3,8 +3,6 @@ package ru.gelin.android.browser.open;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.gelin.android.browser.open.R;
-
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -15,9 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 /**
@@ -30,12 +28,11 @@ public class BrowsersAdapter extends BaseAdapter {
     static class ResolveInfoAndIntent {
         public ResolveInfo info;
         public Intent intent;
-        public boolean def_checked;
         public boolean selected;
         ResolveInfoAndIntent(ResolveInfo info, Intent intent) {
             this.info = info;
             this.intent = intent;
-            this.def_checked = false;
+            this.selected = false;
         }
     }
 
@@ -95,20 +92,10 @@ public class BrowsersAdapter extends BaseAdapter {
     public String getBrowserPackage(int i) {
     	return this.browsers.get(i).info.activityInfo.packageName;
     }
-    
-    public void setChecked(int i) {
-    	for (int j=0; j<browsers.size(); j++) {
-    		if (i == j) {
-    			browsers.get(j).def_checked = true;
-    		} else {
-    			browsers.get(j).def_checked = false;
-    		}
-    	}
-    }
-    
+
     public void uncheck() {
     	for (int j=0; j<browsers.size(); j++) {
-    		browsers.get(j).def_checked = false;
+    		browsers.get(j).selected = false;
     	}
     }
     
@@ -138,17 +125,19 @@ public class BrowsersAdapter extends BaseAdapter {
         ImageView icon = (ImageView)view.findViewById(R.id.icon);
         icon.setImageDrawable(browser.loadIcon(pm));  //TODO cache icons
         LinearLayout ll = (LinearLayout)view.findViewById(R.id.list_item);
+        RadioButton rb = (RadioButton)view.findViewById(R.id.ch_radio);
+             
+        TextView text = (TextView)view.findViewById(R.id.title);
+    	text.setText(browser.loadLabel(pm));    //TODO cache labels
         
-        if (in_dialog) {
-        	TextView text = (TextView)view.findViewById(R.id.title);
-        	text.setText(browser.loadLabel(pm));    //TODO cache labels
-        } else {
-        	CheckedTextView text = (CheckedTextView)view.findViewById(R.id.title);
-        	text.setChecked(browsers.get(i).def_checked);
-        	text.setText(browser.loadLabel(pm));    //TODO cache labels
-        	
-        	if (browsers.get(i).selected) ll.setBackgroundColor(0x22808080);
-        	else ll.setBackgroundColor(0x00000000);
+        if (!in_dialog) {
+        	if (browsers.get(i).selected) {
+        		rb.setChecked(true);
+        		ll.setBackgroundColor(0x22808080);
+        	} else {
+        		rb.setChecked(false);
+        		ll.setBackgroundColor(0x00000000);
+        	}
         }
         
         return view;

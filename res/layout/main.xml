@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@+id/main"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="@string/app_description"
-          android:padding="15dp">
-</TextView>
--->
- 	
 <RelativeLayout 
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/main_layout"
@@ -30,44 +20,20 @@
 	          android:visibility="gone"
 	          android:layout_below="@+id/main" >
 	</TextView>
-
 	<ListView android:id="@+id/list_main"
-               android:layout_width="fill_parent"
-               android:layout_height="fill_parent"
-               android:layout_below="@+id/main"
-               android:layout_above="@+id/main_ll"
-               android:paddingLeft="8dp"
-           	   android:paddingRight="8dp" />
-	
-	<LinearLayout 
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		android:id="@+id/main_ll"
-		android:padding="10dp"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal"
-		android:layout_alignParentBottom="true" >
-		<Button
-			 android:layout_width="fill_parent"
-			 android:layout_height="wrap_content"
-			 android:id="@+id/btnApply"
-			 android:text="@string/setup_apply"
-			 android:layout_weight="1" >
-		</Button>
-		<Button
-			 android:layout_width="fill_parent"
-			 android:layout_height="wrap_content"
-			 android:id="@+id/btnReset"
-			 android:text="@string/setup_reset"
-			 android:layout_weight="1" >
-		</Button>
-		<Button
-			 android:layout_width="fill_parent"
-			 android:layout_height="wrap_content"
-			 android:id="@+id/btnExit"
-			 android:text="@string/setup_exit"
-			 android:layout_weight="1" >
-		</Button>
-	</LinearLayout>
-	
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:layout_below="@+id/main"
+              android:layout_above="@+id/btnReset"
+              android:paddingLeft="8dp"
+           	  android:paddingRight="8dp" />	
+	<Button
+		      android:id="@+id/btnReset"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content"
+			  android:layout_margin="5dp"
+			  android:textAppearance="?android:attr/textAppearanceLarge"
+			  android:text="@string/setup_reset_long"
+			  android:layout_alignParentBottom="true" >
+	</Button>
 </RelativeLayout>

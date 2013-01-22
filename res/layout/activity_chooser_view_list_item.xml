@@ -12,6 +12,7 @@
                 android:layout_height="48dip"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="8dip"
+                android:contentDescription="@string/list_view_image_content_desc"
                 android:duplicateParentState="true" />
 
         <TextView
