@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout 
+<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/main_layout"
 	android:layout_width="fill_parent"
@@ -8,22 +8,29 @@
 	<TextView android:id="@+id/main"
 	          android:layout_width="wrap_content"
 	          android:layout_height="wrap_content"
-	          android:text="@string/app_description"
-	          android:padding="10dp"
-	          android:layout_alignParentTop="true" >
+              android:layout_alignParentTop="true"
+              android:text="@string/app_description"
+	          android:padding="10dp">
 	</TextView>
+    <TextView android:id="@+id/description"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/main"
+              android:text="@string/default_browser_preference"
+              android:padding="10dp">
+    </TextView>
 	<TextView android:id="@+id/text_noitems"
 	          android:layout_width="wrap_content"
 	          android:layout_height="wrap_content"
-	          android:text="@string/no_activities"
+              android:layout_below="@+id/description"
+              android:text="@string/no_activities"
 	          android:padding="10dp"
-	          android:visibility="gone"
-	          android:layout_below="@+id/main" >
+	          android:visibility="gone">
 	</TextView>
 	<ListView android:id="@+id/list_main"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
-              android:layout_below="@+id/main"
+              android:layout_below="@+id/description"
               android:layout_above="@+id/btnReset"
               android:paddingLeft="8dp"
            	  android:paddingRight="8dp" />	
@@ -31,9 +38,8 @@
 		      android:id="@+id/btnReset"
 			  android:layout_width="match_parent"
 			  android:layout_height="wrap_content"
-			  android:layout_margin="5dp"
-			  android:textAppearance="?android:attr/textAppearanceLarge"
-			  android:text="@string/setup_reset_long"
-			  android:layout_alignParentBottom="true" >
+              android:layout_alignParentBottom="true"
+              android:layout_margin="5dp"
+			  android:text="@string/setup_reset_long">
 	</Button>
 </RelativeLayout>

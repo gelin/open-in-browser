@@ -3,9 +3,10 @@
     <string name="app_name">Open in browser</string>
     <string name="activity_name_settings">Open in browser settings</string>
     <string name="app_description">This application adds ability to open HTML/text/image files
-        saved to SD card from a file manager directly in the browser.
-        \nJust tap the file in the file manager and choose \"Browser\".
-        \nYou can specify your preference.</string>
+ saved to SD card from a file manager directly in the browser.
+ \nJust tap the file in the file manager and choose \"Browser\".</string>
+    <string name="default_browser_preference">Choose your preferred browser.
+ This browser will be always opened from the file manager.</string>
     <string name="browser">Browser</string>
     <string name="open_in_browser">Open in browser</string>
     <string name="cannot_open">Cannot open this file</string>
@@ -14,7 +15,7 @@
     <string name="select_as_default">Select as default</string>
     <string name="setup_apply">Set</string>
     <string name="setup_reset">Reset</string>
-    <string name="setup_reset_long">Clear Preference</string>
+    <string name="setup_reset_long">No preferred browser</string>
     <string name="setup_exit">Exit</string>
     <string name="oib_id_selection">OiB Preference</string>
     <string name="no_activities">You have no applications to open HTML! Please install any web browser.</string>
