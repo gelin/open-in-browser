@@ -39,37 +39,42 @@ public class MainActivity extends Activity implements OnClickListener, OnItemCli
         but_reset.setOnClickListener(this);
               
         man = new OibPreferenceManager(this,ID_SELECTION);
-        
-        selected_pos = -1;
-        
-            adapter = new BrowsersAdapter(this);
-            items_count = adapter.getCount();
-     
-            if (items_count == 0) { //no activities
-            	lvMain.setVisibility(View.GONE);
-            	but_reset.setVisibility(View.GONE);
-            	TextView tevv = (TextView)findViewById(R.id.text_noitems);
-            	tevv.setVisibility(View.VISIBLE);
-            } else { //
-            	lvMain.setOnItemClickListener(this);
-            	lvMain.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-            	lvMain.setAdapter(adapter);
-            	
-            	def_package = man.loadSelection();
-            	Log.d(Tag.TAG,"default package = "+def_package);
-            	
-            	for (int item_pos=0; item_pos<items_count; item_pos++) {
-            		if (def_package.equals(adapter.getBrowserPackage(item_pos))) {
-            			adapter.setSelected(item_pos);
-            			lvMain.performItemClick(lvMain, item_pos, 0);           			
-            			break;
-            		}
-            	}
-            	
-            }       
     }
-   
-	@Override
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        selected_pos = -1;
+
+        adapter = new BrowsersAdapter(this);
+        items_count = adapter.getCount();
+
+        if (items_count == 0) { //no activities
+            lvMain.setVisibility(View.GONE);
+            but_reset.setVisibility(View.GONE);
+            TextView tevv = (TextView)findViewById(R.id.text_noitems);
+            tevv.setVisibility(View.VISIBLE);
+        } else { //
+            lvMain.setOnItemClickListener(this);
+            lvMain.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+            lvMain.setAdapter(adapter);
+
+            def_package = man.loadSelection();
+            Log.d(Tag.TAG,"default package = "+def_package);
+
+            for (int item_pos=0; item_pos<items_count; item_pos++) {
+                if (def_package.equals(adapter.getBrowserPackage(item_pos))) {
+                    adapter.setSelected(item_pos);
+                    lvMain.performItemClick(lvMain, item_pos, 0);
+                    break;
+                }
+            }
+
+        }
+    }
+
+    @Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btnReset:
