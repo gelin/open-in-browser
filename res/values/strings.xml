@@ -12,7 +12,7 @@
     <string name="cannot_open">Cannot open this file</string>
     <string name="no_browsers">There is no browsers in your system</string>
     <string name="menu_settings">OiB settings</string>
-    <string name="select_as_default">Select as default</string>
+    <string name="select_as_default">Use as default</string>
     <string name="setup_apply">Set</string>
     <string name="setup_reset">Reset</string>
     <string name="setup_reset_long">No preferred browser</string>
