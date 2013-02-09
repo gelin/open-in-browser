@@ -9,7 +9,7 @@
     <property name="projectname" value="android-open-in-browser"/>
 
     <taskdef classname="net.bluecow.googlecode.ant.GoogleCodeUploadTask" name="gcupload"
-	classpath="${sdk.dir}/ant-googlecode-0.0.2.jar"/>
+	classpath="${sdk.dir}/ant-googlecode-0.0.3.jar"/>
 
     <target name="all" depends="debug, release"/>
 
@@ -20,9 +20,9 @@
 	    password="${gc.password}"
     	    projectname="${projectname}" 
     	    filename="bin/${app}-debug.apk" 
-    	    targetfilename="${app}-${manifest(android:versionName)}-debug.apk"
-    	    summary="Latest build (${manifest(android:versionName)}, signed by debug key)"
-    	    labels="Type-Package, OpSys-Android_2.0" />
+    	    targetfilename="${app}-${manifest(android:versionName)}-${manifest(android:versionCode)}-debug.apk"
+    	    summary="Build ${manifest(android:versionName)}, signed by debug key"
+    	    labels="Type-Package, OpSys-Android_1.5" />
 
 	<copy file="bin/${app}-debug.apk"
 	    todir="/home/gelin/Dropbox/android@gelin"/>
@@ -39,9 +39,9 @@
 	    password="${gc.password}"
     	    projectname="${projectname}" 
     	    filename="bin/${app}.apk" 
-    	    targetfilename="${app}-${manifest(android:versionName)}.apk"
-    	    summary="Latest build (${manifest(android:versionName)})"
-    	    labels="Featured, Type-Package, OpSys-Android_2.0" />
+    	    targetfilename="${app}-${manifest(android:versionName)}-${manifest(android:versionCode)}.apk"
+    	    summary="Build ${manifest(android:versionName)}"
+    	    labels="Featured, Type-Package, OpSys-Android_1.5" />
 
 	<copy file="bin/${app}.apk"
 	    todir="/home/gelin/Dropbox/android@gelin"/>
