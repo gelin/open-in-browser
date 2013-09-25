@@ -3,15 +3,12 @@ package ru.gelin.android.browser.open;
 import ru.gelin.android.browser.open.intent.IntentConverter;
 import android.app.ListActivity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import ru.gelin.android.browser.open.R;
 
 /**
  *  Converts input view intent into browsable intent.
@@ -21,13 +18,13 @@ public class OpenBrowserActivity extends ListActivity {
 	CheckBox cb;
 	BrowsersAdapter adapter;
 	
-	OibPreferenceManager man;
+	BrowsersListManager man;
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.open_in_browser);
         Log.d(Tag.TAG, "Intent: " + getIntent());
-        man = new OibPreferenceManager(this);
+        man = new BrowsersListManager(this);
         
         try {
             IntentConverter converter = IntentConverter.getInstance(this, getIntent());
