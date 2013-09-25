@@ -3,29 +3,27 @@ package ru.gelin.android.browser.open;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.preference.PreferenceManager;
 
 public class OibPreferenceManager {
 
-	String ID_SELECTION;
-	SharedPreferences sPref;
-	Context caller_context;
+	String BROWSER_PREF = "browser";
+	Context context;
 	
-	public OibPreferenceManager(Context con, String sel) {
-		ID_SELECTION = sel;
-		//ID_SELECTION = con.getString(R.string.oib_id_selection);
-		caller_context = con;
+	public OibPreferenceManager(Context context) {
+		this.context = context;
 	}
 	
 	void saveSelection(String savingText) {
-		sPref = caller_context.getSharedPreferences(ID_SELECTION,Context.MODE_PRIVATE);
-		Editor ed = sPref.edit();
-		ed.putString(ID_SELECTION, savingText);
-		ed.commit();
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.context);
+        Editor editor = prefs.edit();
+		editor.putString(BROWSER_PREF, savingText);
+		editor.commit();
 	 }
 	  
 	 String loadSelection() {
-		sPref = caller_context.getSharedPreferences(ID_SELECTION,Context.MODE_PRIVATE);
-		String savedText = sPref.getString(ID_SELECTION, "");
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.context);
+		String savedText = prefs.getString(BROWSER_PREF, "");
 		return savedText;
 	 }
 }

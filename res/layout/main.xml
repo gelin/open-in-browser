@@ -19,15 +19,7 @@
               android:text="@string/default_browser_preference"
               android:padding="10dp">
     </TextView>
-	<TextView android:id="@+id/text_noitems"
-	          android:layout_width="wrap_content"
-	          android:layout_height="wrap_content"
-              android:layout_below="@+id/description"
-              android:text="@string/no_activities"
-	          android:padding="10dp"
-	          android:visibility="gone">
-	</TextView>
-	<ListView android:id="@+id/list_main"
+	<ListView android:id="@android:id/list"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:layout_below="@+id/description"
