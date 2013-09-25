@@ -19,19 +19,15 @@ import ru.gelin.android.browser.open.R;
 public class OpenBrowserActivity extends ListActivity {
 
 	CheckBox cb;
-	SharedPreferences sPref;
 	BrowsersAdapter adapter;
 	
 	OibPreferenceManager man;
-	
-	String ID_SELECTION;
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.open_in_browser);
         Log.d(Tag.TAG, "Intent: " + getIntent());
-        ID_SELECTION = getString(R.string.oib_id_selection);
-        man = new OibPreferenceManager(this,ID_SELECTION);
+        man = new OibPreferenceManager(this);
         
         try {
             IntentConverter converter = IntentConverter.getInstance(this, getIntent());
