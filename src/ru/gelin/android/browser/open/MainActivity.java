@@ -32,7 +32,7 @@ public class MainActivity extends ListActivity implements OnClickListener {
 		case R.id.btnReset:
             BrowsersAdapter adapter = (BrowsersAdapter)getListAdapter();
             adapter.getManager().setSelected(-1);
-			setListAdapter(adapter); //way to refresh view
+            adapter.notifyDataSetChanged();
 			break;
 		}
 	}
@@ -42,6 +42,7 @@ public class MainActivity extends ListActivity implements OnClickListener {
         try {
             BrowsersAdapter adapter = (BrowsersAdapter)getListAdapter();
             adapter.getManager().setSelected(position);
+            adapter.notifyDataSetChanged();
         } catch (Exception ex) {
             Toast.makeText(this, getString(R.string.err_cant_apply), Toast.LENGTH_SHORT).show();
         }
