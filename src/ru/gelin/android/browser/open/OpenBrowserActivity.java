@@ -40,23 +40,13 @@ public class OpenBrowserActivity extends ListActivity {
                     finish();
                     break;
                 case 1:
-                    startActivity(adapter.getIntent(0));
+                    startActivity(adapter.getManager().getIntent(0));
                     finish();
                     break;
                 default:
-                	def_package = man.loadSelection();
-                	Log.d(Tag.TAG,"default package = "+def_package);
-                	if (def_package.length() > 10) for (item_pos=0; item_pos<items_count; item_pos++) {
-                		if (def_package.equals(adapter.getBrowserPackage(item_pos))) {
-                			startActivity(adapter.getIntent(item_pos));
-                			finish();
-                			break;
-                		}
-                	}
-                	//not matched
-                	setContentView(R.layout.selection_dialog_layout);
-                	setListAdapter(adapter);
-                	cb = (CheckBox) findViewById(R.id.select_def);
+               		startActivity(adapter.getManager().getSelectedIntent());
+               		finish();
+               		break;
             }
         } catch (Exception e) {
             Log.e(Tag.TAG, "failed to open the file", e);
@@ -68,8 +58,10 @@ public class OpenBrowserActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         BrowsersAdapter adapter = (BrowsersAdapter)l.getAdapter();
-        Intent intent = adapter.getIntent(position);
-        if (cb.isChecked()) man.saveSelection(adapter.getBrowserPackage(position));
+        if (cb.isChecked()) {
+            adapter.getManager().setSelected(position);
+        }
+        Intent intent = adapter.getManager().getIntent(position);
         startActivity(intent);
         finish();
     }
