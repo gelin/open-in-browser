@@ -67,6 +67,10 @@ public class BrowsersListManager {
                 this.selected = i;
             }
         }
+
+        if (this.browsers.size() == 1) {
+            this.selected = 0;
+        }
     }
 
     /**
@@ -127,7 +131,7 @@ public class BrowsersListManager {
     }
 
     /**
-     *  Returns lable of the browser on the position.
+     *  Returns label of the browser on the position.
      *  @return label or null
      */
     public CharSequence getLabel(int position) {
