@@ -74,6 +74,8 @@ public class BrowserOptionsAdapter extends BrowsersAdapter {
                 break;
             case NO_BROWSERS:
                 view = getView(convertView, viewGroup, R.layout.no_browser_list_item);
+                highlightItem(view, true);
+                view.setEnabled(false);
                 break;
         }
         return view;

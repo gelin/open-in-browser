@@ -10,10 +10,11 @@
     <string name="browser">Browser</string>
     <string name="open_in_browser">Open in browser</string>
     <string name="cannot_open">Cannot open this file</string>
-    <string name="no_browsers">There is no browsers in your system</string>
     <string name="menu_settings">OiB settings</string>
     <string name="select_as_default">Use as default</string>
     <string name="err_cant_apply">Error! Cannot apply this preference.</string>
     <string name="choose_browser">No preference</string>
     <string name="choose_browser_description">Show dialog to choose browser</string>
+    <string name="no_browsers">No browsers</string>
+    <string name="no_browsers_description">Please install a browser</string>
 </resources>
