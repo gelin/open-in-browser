@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/list_item"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:gravity="top"
+              android:padding="8dip" >
+
+        <ImageView
+                android:id="@+id/icon"
+                android:layout_width="48dip"
+                android:layout_height="48dip"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="8dip"
+                android:layout_alignParentLeft="true"
+                android:duplicateParentState="true"
+                android:src="@drawable/icon" />
+
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/icon"
+                android:layout_toLeftOf="@+id/ch_radio"
+                android:layout_alignParentTop="true"
+                android:gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:text="@string/choose_browser" />
+
+        <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/icon"
+                android:layout_toLeftOf="@+id/ch_radio"
+                android:layout_below="@+id/title"
+                android:gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:text="@string/choose_browser_description" />
+        
+ 		<RadioButton 
+            	android:id="@+id/ch_radio"
+                android:layout_width="50dp"
+                android:layout_height="48dp"
+                android:layout_alignParentRight="true"
+            	android:textAppearance="?android:attr/textAppearanceLarge"
+            	android:focusable="false"
+            	android:clickable="false"
+            	android:checked="false" />
+ 		
+</RelativeLayout>

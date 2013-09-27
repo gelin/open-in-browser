@@ -7,15 +7,6 @@
               android:gravity="top"
               android:padding="8dip" >
               
-        <ImageView
-                android:id="@+id/icon"
-                android:layout_width="48dip"
-                android:layout_height="48dip"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="8dip"
-                android:contentDescription="@string/list_view_image_content_desc"
-                android:duplicateParentState="true" />
- 
         <TextView
                 android:id="@+id/title"
                 android:layout_width="0dp"
@@ -25,7 +16,8 @@
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:ellipsize="marquee"
-                android:fadingEdge="horizontal" />
+                android:fadingEdge="horizontal"
+                android:text="@string/no_browsers" />
         
  		<RadioButton 
             	android:id="@+id/ch_radio"

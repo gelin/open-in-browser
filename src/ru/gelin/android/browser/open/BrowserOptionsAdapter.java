@@ -89,14 +89,14 @@ public class BrowserOptionsAdapter extends BrowsersAdapter {
 
     @Override
     protected void highlightItem(int position, View view) {
-        LinearLayout ll = (LinearLayout)view.findViewById(R.id.list_item);
-        RadioButton rb = (RadioButton)view.findViewById(R.id.ch_radio);
+        View layout = (LinearLayout)view.findViewById(R.id.list_item);
+        RadioButton radio = (RadioButton)view.findViewById(R.id.ch_radio);
         if (this.browsers.isSelected(position)) {
-            rb.setChecked(true);
-            ll.setBackgroundColor(0x22808080);
+            radio.setChecked(true);
+            layout.setBackgroundColor(0x22808080);
         } else {
-            rb.setChecked(false);
-            ll.setBackgroundColor(0x00000000);
+            radio.setChecked(false);
+            layout.setBackgroundColor(0x00000000);
         }
     }
 
