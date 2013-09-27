@@ -10,25 +10,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
- *  List adapter for the list of browsers
+ *  List adapter for the list of manager
  */
 public class BrowsersAdapter extends BaseAdapter {
 
     Context context;
-    BrowsersListManager browsers;
+    BrowsersListManager manager;
 
     public BrowsersAdapter(Context context, Intent intent) {
         this.context = context;
-        this.browsers = new BrowsersListManager(context, intent);
+        this.manager = new BrowsersListManager(context, intent);
     }
 
     public BrowsersListManager getManager() {
-        return this.browsers;
+        return this.manager;
     }
 
     @Override
     public int getCount() {
-        return this.browsers.getCount();
+        return this.manager.getCount();
     }
 
     @Override
@@ -48,9 +48,9 @@ public class BrowsersAdapter extends BaseAdapter {
             view = createBrowserView(viewGroup);
         }
         ImageView icon = (ImageView)view.findViewById(R.id.icon);
-        icon.setImageDrawable(this.browsers.getIcon(position));
+        icon.setImageDrawable(this.manager.getIcon(position));
         TextView text = (TextView)view.findViewById(R.id.title);
-    	text.setText(this.browsers.getLabel(position));
+    	text.setText(this.manager.getLabel(position));
         highlightItem(position, view);
         return view;
     }

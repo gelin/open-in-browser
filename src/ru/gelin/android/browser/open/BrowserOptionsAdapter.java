@@ -1,7 +1,6 @@
 package ru.gelin.android.browser.open;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,13 +22,13 @@ public class BrowserOptionsAdapter extends BrowsersAdapter {
 
     @Override
     public int getCount() {
-        switch (this.browsers.getCount()) {
+        switch (this.manager.getCount()) {
             case 0:
                 return 1;
             case 1:
                 return 1;
             default:
-                return this.browsers.getCount() + 1;
+                return this.manager.getCount() + 1;
         }
     }
 
@@ -39,13 +38,13 @@ public class BrowserOptionsAdapter extends BrowsersAdapter {
     }
 
     Type getItemType(int position) {
-        switch (this.browsers.getCount()) {
+        switch (this.manager.getCount()) {
             case 0:
                 return Type.NO_BROWSERS;
             case 1:
                 return Type.SINGLE_BROWSER;
             default:
-                if (position < this.browsers.getCount()) {
+                if (position < this.manager.getCount()) {
                     return Type.BROWSER;
                 } else {
                     return Type.CHOOSE;
@@ -71,6 +70,7 @@ public class BrowserOptionsAdapter extends BrowsersAdapter {
                 break;
             case CHOOSE:
                 view = getView(convertView, viewGroup, R.layout.choose_browser_list_item);
+                highlightItem(view, !this.manager.hasSelection());
                 break;
             case NO_BROWSERS:
                 view = getView(convertView, viewGroup, R.layout.no_browser_list_item);
@@ -89,9 +89,13 @@ public class BrowserOptionsAdapter extends BrowsersAdapter {
 
     @Override
     protected void highlightItem(int position, View view) {
-        View layout = (LinearLayout)view.findViewById(R.id.list_item);
+        highlightItem(view, this.manager.isSelected(position));
+    }
+
+    private void highlightItem(View view, boolean selected) {
+        View layout = view.findViewById(R.id.list_item);
         RadioButton radio = (RadioButton)view.findViewById(R.id.ch_radio);
-        if (this.browsers.isSelected(position)) {
+        if (selected) {
             radio.setChecked(true);
             layout.setBackgroundColor(0x22808080);
         } else {

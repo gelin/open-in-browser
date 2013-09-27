@@ -52,6 +52,7 @@ public class BrowsersListManager {
 
         PackageManager pm = context.getPackageManager();
         List<ResolveInfo> infos = pm.queryIntentActivities(BROWSER_INTENT, 0);
+        String selectedPackage = loadSelection();
         for (int i = 0; i < infos.size(); i++) {;
             ResolveInfo browser = infos.get(i);
             ComponentName component = new ComponentName(browser.activityInfo.packageName, browser.activityInfo.name);
@@ -63,7 +64,7 @@ public class BrowsersListManager {
             }
             ResolveInfoAndIntent infoAndIntent = new ResolveInfoAndIntent(browser, browserIntent);
             this.browsers.add(infoAndIntent);
-            if (intent != null && infoAndIntent.getPackageName().equals(loadSelection())) {
+            if (infoAndIntent.getPackageName().equals(selectedPackage)) {
                 this.selected = i;
             }
         }
@@ -74,7 +75,7 @@ public class BrowsersListManager {
     }
 
     /**
-     *  Returns the number of found browsers.
+     *  Returns the number of found manager.
      */
     public int getCount() {
         return this.browsers.size();
@@ -102,6 +103,14 @@ public class BrowsersListManager {
     }
 
     /**
+     *  Checks if any browser is selected.
+     *  Returns false if no browser is selected and a choose dialog should be displayed.
+     */
+    public boolean hasSelection() {
+        return this.selected >=0 && this.selected < this.browsers.size();
+    }
+
+    /**
      *  Returns the Intent to start the selected browser.
      */
     public Intent getSelectedIntent() {
@@ -114,7 +123,7 @@ public class BrowsersListManager {
      */
     public Intent getIntent(int position) {
         //TODO
-        //this.browsers.get(position).intent;
+        //this.manager.get(position).intent;
         return null;
     }
 
