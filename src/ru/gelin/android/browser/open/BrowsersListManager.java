@@ -111,20 +111,23 @@ public class BrowsersListManager {
     }
 
     /**
-     *  Returns the Intent to start the selected browser.
-     */
-    public Intent getSelectedIntent() {
-        //TODO
-        return null;
-    }
-
-    /**
      *  Returns the Intent to start the browser on the position.
      */
     public Intent getIntent(int position) {
-        //TODO
-        //this.manager.get(position).intent;
-        return null;
+        if (position < 0 || position >= this.browsers.size()) {
+            return null;
+        }
+        return this.browsers.get(position).intent;
+    }
+
+    /**
+     *  Returns the Intent to start the selected browser.
+     */
+    public Intent getSelectedIntent() {
+        if (!hasSelection()) {
+            return null;
+        }
+        return this.browsers.get(this.selected).intent;
     }
 
     /**
