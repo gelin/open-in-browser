@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Открыть в браузере</string>
+    <string name="activity_name_settings">Настройки открытия в браузере</string>
+    <string name="app_description">Это приложение добавляет возможность открывать HTML,
+ текстовые файлы и файлы изображений, сохраненные на SD карту, из файлового менеджера сразу в браузере.
+\nПросто нажмите на файл в файловом менеджере и выберите \"Браузер\".</string>
+    <string name="default_browser_preference">Выберите предпочитаемый браузер.
+ Этот браузер будет открываться из файлового менеджера.</string>
+    <string name="browser">Браузер</string>
+    <string name="open_in_browser">Открыть в браузере</string>
+    <string name="cannot_open">Невозможно открыть этот файл</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="select_as_default">Использовать по умолчанию</string>
+    <string name="err_cant_apply">Ошибка! Невозможно применить эти настройки.</string>
+    <string name="choose_browser">Нет предпочтений</string>
+    <string name="choose_browser_description">Показывать диалог выбора браузера</string>
+    <string name="no_browsers">Нет браузеров</string>
+    <string name="no_browsers_description">Пожалуйста, установите хотя бы один браузер</string>
+</resources>
