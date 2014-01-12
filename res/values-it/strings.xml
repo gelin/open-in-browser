@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Open in browser</string>
+    <string name="activity_name_settings">Impostazioni di Open in browser</string>
+    <string name="app_description">Questa applicazione consente di aprire file HTML/di testo/immagine memorizzati nel dispositivo tramite file manager direttamente con il browser.\n
+	Tocca il file che desideri aprire tramite il tuo file manager e seleziona \"Browser\".</string>
+    <string name="default_browser_preference">Scegli il tuo browser preferito.
+ Sarà il browser con il quale aprirai i file.</string>
+    <string name="browser">Browser</string>
+    <string name="open_in_browser">Open in browser</string>
+    <string name="cannot_open">Impossibile aprire il file</string>
+    <string name="menu_settings">Impostazioni OiB</string>
+    <string name="select_as_default">Predefinito</string>
+    <string name="err_cant_apply">Impossibile applicare i cambiamenti.</string>
+    <string name="choose_browser">Nessuna preferenza</string>
+    <string name="choose_browser_description">Mostra il menu di scelta</string>
+    <string name="no_browsers">Nessun browser</string>
+    <string name="no_browsers_description">Installa un browser</string>
+</resources>
