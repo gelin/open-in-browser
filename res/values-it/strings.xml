@@ -2,8 +2,9 @@
 <resources>
     <string name="app_name">Open in browser</string>
     <string name="activity_name_settings">Impostazioni di Open in browser</string>
-    <string name="app_description">Questa applicazione consente di aprire file HTML/di testo/immagine memorizzati nel dispositivo tramite file manager direttamente con il browser.\n
-	Tocca il file che desideri aprire tramite il tuo file manager e seleziona \"Browser\".</string>
+    <string name="app_description">Questa applicazione consente di aprire file HTML/di testo/immagine
+ memorizzati nel dispositivo tramite file manager direttamente con il browser.
+\nTocca il file che desideri aprire tramite il tuo file manager e seleziona \"Browser\".</string>
     <string name="default_browser_preference">Scegli il tuo browser preferito.
  Sarà il browser con il quale aprirai i file.</string>
     <string name="browser">Browser</string>
