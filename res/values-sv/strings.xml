@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Öppna i webbläsaren</string>
+    <string name="activity_name_settings">Öppna i webbläsaren - inställningar</string>
+    <string name="app_description">Denna app ger dig möjligheten att öppna HTML-filer,
+        textdokument och bilder sparade på SD-kortet från en filhanterare i din webbläsare.
+        \nTryck helt enkelt på en fil i filhanteraren och välj \"Webbläsare\".</string>
+    <string name="default_browser_preference">Välj vilken webbläsare du föredrar.
+        Denna webbläsare kommer användas för filer i filhanteraren.</string>
+    <string name="browser">Webbläsare</string>
+    <string name="open_in_browser">Öppna i webbläsare</string>
+    <string name="cannot_open">Kan inte läsa filen</string>
+    <string name="menu_settings">ÖIW - inställningar</string>
+    <string name="select_as_default">Ange som standard</string>
+    <string name="err_cant_apply">Kan inte tillämpa ändringarna.</string>
+    <string name="choose_browser">Ingen föredragen</string>
+    <string name="choose_browser_description">Välj webbläsare när en fil öppnas</string>
+    <string name="no_browsers">Inga webbläsare installerade</string>
+    <string name="no_browsers_description">Installera minst en webbläsare</string>
+</resources>
