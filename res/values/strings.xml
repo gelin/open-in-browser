@@ -21,4 +21,7 @@
     <string name="donate">Donate</string>
     <string name="donate_summary">Donate $1 with Google Play</string>
     <string name="donate_thanks">Thank you!</string>
+    <!-- v.0.0.7 -->
+    <string name="desktop_shortcut">Desktop Shortcut</string>
+    <string name="shortcut_name">Shortcut name</string>
 </resources>

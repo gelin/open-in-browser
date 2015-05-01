@@ -21,4 +21,7 @@
     <string name="donate">Поддержать разработчика</string>
     <string name="donate_summary">Подарить разработчику $1 через Google Play</string>
     <string name="donate_thanks">Спасибо!</string>
+    <!-- v.0.0.7 -->
+    <string name="desktop_shortcut">Ярлык на рабочий стол</string>
+    <string name="shortcut_name">Название ярлыка</string>
 </resources>

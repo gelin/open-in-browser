@@ -18,11 +18,11 @@
         </activity>
         
         <activity
-            android:name="OpenBrowserActivity"
-            android:label="@string/browser"
-            android:theme="@style/AppDialogTheme"
-            android:excludeFromRecents="true"
-            android:noHistory="true">
+                android:name="OpenBrowserActivity"
+                android:label="@string/browser"
+                android:theme="@style/AppDialogTheme"
+                android:excludeFromRecents="true"
+                android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -39,10 +39,33 @@
                 <data android:mimeType="video/*"/>
             </intent-filter>
         </activity>
+        <!--<activity-->
+                <!--android:name=".ShortcutActivity"-->
+                <!--android:label="@string/desktop_shortcut"-->
+                <!--android:theme="@style/AppDialogTheme"-->
+                <!--android:excludeFromRecents="true"-->
+                <!--android:noHistory="true">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.SEND"/>-->
+                <!--<category android:name="android.intent.category.DEFAULT"/>-->
+                <!--<data android:mimeType="text/*"/>-->
+            <!--</intent-filter>-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.SEND"/>-->
+                <!--<category android:name="android.intent.category.DEFAULT"/>-->
+                <!--<data android:mimeType="image/*"/>-->
+            <!--</intent-filter>-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.SEND"/>-->
+                <!--<category android:name="android.intent.category.DEFAULT"/>-->
+                <!--<data android:mimeType="video/*"/>-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
 
     </application>
 
     <uses-permission android:name="com.android.vending.BILLING"/>
+    <!--<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>-->
 
     <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="21"/>
     <supports-screens/>
