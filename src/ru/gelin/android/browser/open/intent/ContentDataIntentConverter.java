@@ -14,10 +14,10 @@ import java.util.Arrays;
 import ru.gelin.android.browser.open.Tag;
 
 /**
- *  Converts the original intent received from the file manager into
- *  the intent which opens the file in the browser.
- *  The data of the intent must point to the cursor which must contain the "_data" column.
- *  The "_data" column is treated as a filename.
+ *  Converts the original intent
+ *  into the intent which opens the file in the browser.
+ *  The data of the intent must point to the cursor which must contain the '_data' column.
+ *  The '_data' column is treated as a filename.
  */
 class ContentDataIntentConverter extends IntentConverter {
 
@@ -44,7 +44,7 @@ class ContentDataIntentConverter extends IntentConverter {
             cursor = resolver.query(data, null, null, null, null);
             Log.d(Tag.TAG, "Columns: " + Arrays.asList(cursor.getColumnNames()));
             if (cursor.getColumnIndex(MediaStore.MediaColumns.DATA) < 0) {
-                // no _DATA column, cannot use this converter
+                // no _data column, cannot use this converter
                 Log.w(Tag.TAG, "No " + MediaStore.MediaColumns.DATA + " column in this provider");
                 return null;
             }

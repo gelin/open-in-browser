@@ -12,6 +12,7 @@ import java.io.File;
  *  action=android.intent.action.VIEW
  *  data=content://com.android.htmlfileprovider/sdcard/tmp/index.html
  *  type=text/html
+ *  It removes the initial 'com.android.htmlfileprovider' host part from the uri.
  */
 class HtmlFileProviderIntentConverter extends IntentConverter {
 

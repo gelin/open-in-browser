@@ -10,6 +10,7 @@ import java.io.File;
  *  the intent which opens the file in the browser.
  *  Example of the intent:
  *  dat=content://com.metago.astro.filesystem/mnt/sdcard/books/mongo/DOCS/1.0 Changelist.html typ=text/html
+ *  It removes the 'com.metago.astro.filesystem' prefix and adds 'file://' before it.
  */
 class AstroIntentConverter extends IntentConverter {
 

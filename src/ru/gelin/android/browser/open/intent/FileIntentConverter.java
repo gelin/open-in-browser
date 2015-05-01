@@ -4,9 +4,10 @@ import android.content.Intent;
 import android.net.Uri;
 
 /**
- *  Converts the original intent received from a file manager into
- *  the intent which opens the file in the browser.
- *  This converter handles intents with file: scheme.
+ *  Converts the original intent
+ *  into the intent which opens the file in the browser.
+ *  This converter handles intents with file: scheme,
+ *  just keeps the uri unmodified.
  */
 class FileIntentConverter extends IntentConverter {
 
