@@ -28,10 +28,10 @@
         
  		<RadioButton 
             	android:id="@+id/ch_radio"
-            	android:layout_gravity="center_vertical"
-            	android:textAppearance="?android:attr/textAppearanceLarge"
-            	android:layout_width="50dp"
+                android:layout_width="50dp"
                 android:layout_height="match_parent"
+            	android:layout_gravity="center"
+            	android:textAppearance="?android:attr/textAppearanceLarge"
             	android:focusable="false"
             	android:clickable="false"
             	android:checked="false" />

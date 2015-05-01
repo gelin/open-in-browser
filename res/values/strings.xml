@@ -17,4 +17,8 @@
     <string name="choose_browser_description">Show dialog to choose a browser</string>
     <string name="no_browsers">No browsers</string>
     <string name="no_browsers_description">Please install a browser</string>
+    <!-- v.0.0.6 -->
+    <string name="donate">Donate</string>
+    <string name="donate_summary">Donate $1 with Google Play</string>
+    <string name="donate_thanks">Thank you!</string>
 </resources>

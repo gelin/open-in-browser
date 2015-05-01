@@ -17,4 +17,8 @@
     <string name="choose_browser_description">Показывать диалог выбора браузера</string>
     <string name="no_browsers">Нет браузеров</string>
     <string name="no_browsers_description">Пожалуйста, установите хотя бы один браузер</string>
+    <!-- v.0.0.6 -->
+    <string name="donate">Поддержать разработчика</string>
+    <string name="donate_summary">Подарить разработчику $1 через Google Play</string>
+    <string name="donate_thanks">Спасибо!</string>
 </resources>

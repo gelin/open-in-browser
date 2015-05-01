@@ -23,7 +23,16 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:layout_below="@+id/description"
+              android:layout_above="@+id/donate_button"
               android:paddingLeft="8dp"
            	  android:paddingRight="8dp" />
+
+    <Button android:id="@+id/donate_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone"
+            android:text="@string/donate_summary"
+            android:onClick="onDonateButtonClick"/>
 
 </RelativeLayout>
