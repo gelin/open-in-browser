@@ -38,16 +38,26 @@ class ContentDataIntentConverter extends IntentConverter {
         if (!CONTENT_SCHEME.equals(data.getScheme())) {
             return null;
         }
+        Cursor cursor = null;
         try {
             ContentResolver resolver = context.getContentResolver();
-            Cursor cursor = resolver.query(data, null, null, null, null);
+            cursor = resolver.query(data, null, null, null, null);
             Log.d(Tag.TAG, "Columns: " + Arrays.asList(cursor.getColumnNames()));
+            if (cursor.getColumnIndex(MediaStore.MediaColumns.DATA) < 0) {
+                // no _DATA column, cannot use this converter
+                Log.w(Tag.TAG, "No " + MediaStore.MediaColumns.DATA + " column in this provider");
+                return null;
+            }
             cursor.moveToFirst();
             String fileData = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA));
             return new ContentDataIntentConverter(fileData);
         } catch (Exception e) {
             Log.w(Tag.TAG, e);
             return null;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
         }
     }
 

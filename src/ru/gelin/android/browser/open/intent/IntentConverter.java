@@ -35,6 +35,10 @@ public abstract class IntentConverter {
         if (result != null) {
             return result;
         }
+        result = TransparentIntentConverter.getInstance(intent);
+        if (result != null) {
+            return result;
+        }
         throw new IllegalArgumentException("intent is not convertable: " + intent);
     }
 
