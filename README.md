@@ -24,6 +24,6 @@ After
 Screenshots
 -----------
 
-![Settings screen](/gelin/open-in-browser/raw/default/misc/screenshots/settings.png)
-![Open With screen](/gelin/open-in-browser/raw/default/misc/screenshots/open_with.png)
-![Open in Browser screen](/gelin/open-in-browser/raw/default/misc/screenshots/open_in_browser.png)
+![Settings screen](misc/screenshots/settings.png)
+![Open With screen](misc/screenshots/open_with.png)
+![Open in Browser screen](misc/screenshots/open_in_browser.png)
