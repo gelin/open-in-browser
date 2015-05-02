@@ -21,7 +21,7 @@ public class MainActivity extends ListActivity implements DonateStatusListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.main_activity);
 
         this.donation = new Donation(this, this);
     }
