@@ -1,3 +1,6 @@
+What it is?
+===========
+
 Before
 ------
 
@@ -21,8 +24,14 @@ After
 * You start reading
 * PROFIT!
 
+Downloads
+=========
+
+* [Google Play](https://play.google.com/store/apps/details?id=ru.gelin.android.browser.open)
+* [F-Droid](https://f-droid.org/repository/browse/?fdid=ru.gelin.android.browser.open)
+
 Screenshots
------------
+===========
 
 ![Settings screen](misc/screenshots/settings.png)
 ![Open With screen](misc/screenshots/open_with.png)
