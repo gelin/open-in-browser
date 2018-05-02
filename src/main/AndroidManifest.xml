@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="ru.gelin.android.browser.open"
-      android:versionCode="8"
-      android:versionName="0.0.7">
+      package="ru.gelin.android.browser.open">
 
-    <application android:label="@string/app_name"
-                 android:icon="@drawable/icon"
-			     android:theme="@style/AppBaseTheme"
-				 android:allowBackup="true">
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+
+    <uses-sdk/>
+    <supports-screens/>
+    
+    <application
+            android:name="Application"
+            android:label="@string/app_name"
+            android:icon="@drawable/icon"
+            android:theme="@style/AppBaseTheme"
+            android:allowBackup="true">
 
         <activity android:name="MainActivity"
                   android:label="@string/activity_name_settings">
@@ -63,11 +69,5 @@
         </activity>
 
     </application>
-
-    <uses-permission android:name="com.android.vending.BILLING"/>
-    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
-
-    <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="21"/>
-    <supports-screens/>
 
 </manifest> 
