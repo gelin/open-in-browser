@@ -33,6 +33,6 @@ Downloads
 Screenshots
 ===========
 
-![Settings screen](misc/screenshots/settings.png)
-![Open With screen](misc/screenshots/open_with.png)
-![Open in Browser screen](misc/screenshots/open_in_browser.png)
+![Settings screen](https://bitbucket.org/gelin/open-in-browser/raw/9606346844dec9c341337f7bccd31d6f5111d686/misc/screenshots/settings.png)
+![Open With screen](https://bitbucket.org/gelin/open-in-browser/raw/9606346844dec9c341337f7bccd31d6f5111d686/misc/screenshots/open_with.png)
+![Open in Browser screen](https://bitbucket.org/gelin/open-in-browser/raw/9606346844dec9c341337f7bccd31d6f5111d686/misc/screenshots/open_in_browser.png) 
