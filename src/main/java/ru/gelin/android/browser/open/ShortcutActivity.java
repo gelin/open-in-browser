@@ -27,6 +27,7 @@ public class ShortcutActivity extends Activity {
         if (uri == null) {
             Toast.makeText(this, R.string.cannot_open, Toast.LENGTH_LONG).show();
             finish();
+            return;
         }
         TextView data = (TextView) findViewById(R.id.data);
         data.setText(uri.toString());
