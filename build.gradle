@@ -23,10 +23,11 @@ android {
     buildToolsVersion '26.0.1'
 
     defaultConfig {
+        versionCode 10
+        versionName '0.0.8'
+
         minSdkVersion 9
         targetSdkVersion 25
-        versionCode 9
-        versionName '0.0.8'
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
